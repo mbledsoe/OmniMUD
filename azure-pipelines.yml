@@ -1,0 +1,30 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
+steps:
+- task: DotNetCoreCLI@2
+  displayName: 'Publish OmniMUD.WebApp'
+  inputs:
+    azureSubscription: 'azureConn'
+    command: 'publish'
+    publishWebProjects: false
+    projects: '**/OmniMUD.WebApp.csproj'
+    arguments: '-c $(buildConfiguration) -o $(Build.ArtifactStagingDirectory)'
+
+- task: AzureRmWebAppDeployment@4
+  displayName: 'Deploy OmniMUD.WebApp to Azure'
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'azureConn'
+    appType: 'webAppLinux'
+    WebAppName: 'app-omnimud-prod'
+    packageForLinux: '$(Build.ArtifactStagingDirectory)/**/OmniMUD.WebApp.zip'
+
