@@ -97,6 +97,15 @@ header {
     font-weight: bold;
 }
 
+.user {
+    font-size: 12pt;
+    color: #ffffff;
+}
+
+.user a {
+    color: #ffffff;    
+}
+
 main {
     padding: 1em 0em 0em 0em;
 }
@@ -132,6 +141,19 @@ main p {
     font-size: 14pt;
     border: none;
     outline: none;
+}
+
+.signin-form {
+    text-align: center;
+}
+
+.signin-provider a {
+    display: inline-block;
+    text-decoration: none;
+    color: #ffffff;
+    padding: 1em;
+    background-color: #333333;    
+    border: solid 1px #000000;
 }
 
 @media (max-width: 1199px) {

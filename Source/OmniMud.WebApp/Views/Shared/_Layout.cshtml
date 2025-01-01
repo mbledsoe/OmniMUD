@@ -18,7 +18,8 @@
                 <div class="user">
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <span>@User.Identity.Name</span>
+                        <span class="user-name">@User.Identity.Name</span>
+                        <span class="user-signout"><a asp-action="Logout" asp-controller="Auth">Logout</a></span>
                     }
                 </div>
             </div>
