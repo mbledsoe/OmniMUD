@@ -4,10 +4,15 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>3b939249-2f81-48a0-b6eb-761a08baeda1</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
+    <ItemGroup>
+	    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="9.0.0" />
+	    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="9.0.0" />
+    </ItemGroup>
 </Project>

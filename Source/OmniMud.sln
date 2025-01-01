@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmniMud.WebApp", "OmniMud.WebApp\OmniMud.WebApp.csproj", "{D9EA5687-1328-489C-9E1C-AEF502828BAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OmniMud.Database", "OmniMud.Database\OmniMud.Database.csproj", "{3764FC9D-DDD7-41FA-A528-CDD367A1136C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{D9EA5687-1328-489C-9E1C-AEF502828BAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9EA5687-1328-489C-9E1C-AEF502828BAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9EA5687-1328-489C-9E1C-AEF502828BAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3764FC9D-DDD7-41FA-A528-CDD367A1136C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3764FC9D-DDD7-41FA-A528-CDD367A1136C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3764FC9D-DDD7-41FA-A528-CDD367A1136C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3764FC9D-DDD7-41FA-A528-CDD367A1136C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
