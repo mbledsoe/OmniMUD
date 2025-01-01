@@ -20,10 +20,17 @@
 </div>
 
 <div id="input">
-    <input type="text" name="commandInput" id="commandInput" />
+    <form method="post" id="inputForm">
+        <input type="text" name="commandInput" id="commandInput" />
+    </form>
 </div>
 
 <script>
-    document.getElementById('commandInput').focus();
+    const output = document.getElementById('output');
+    const inputForm = document.getElementById('inputForm');
+    const commandInput = document.getElementById('commandInput');
+
+    var omniMud = new OmniMud(output, inputForm, commandInput);
+    omniMud.run();
 </script>
         

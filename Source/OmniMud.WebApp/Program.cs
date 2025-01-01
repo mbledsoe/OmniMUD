@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
+using OmniMud.WebApp.Hubs;
 
 namespace OmniMud.WebApp
 {
@@ -44,6 +45,8 @@ namespace OmniMud.WebApp
 				options.TokenValidationParameters.RoleClaimType = "roles";
 			});
 
+			builder.Services.AddSignalR();
+
 			builder.Services.AddHttpContextAccessor();
 
 			var app = builder.Build();
@@ -52,6 +55,8 @@ namespace OmniMud.WebApp
 
 			app.UseAuthentication();
 			app.UseAuthorization();
+
+			app.MapHub<OmniMudHub>("/OmniMudHub");
 
 			app.MapDefaultControllerRoute();
 
