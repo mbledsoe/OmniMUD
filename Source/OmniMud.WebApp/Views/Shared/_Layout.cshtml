@@ -1,0 +1,36 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>OmniMUD</title>
+    <link rel="stylesheet" href="/css/OmniMud.css" asp-append-version="true">
+    <script src="/scripts/OmniMud.js" asp-append-version="true"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-wrap">
+                <div class="logo">
+                    <img src="/images/omnimud-icon.png" alt="" />
+                    <span>OmniMUD</span>
+                </div>
+                <div class="user">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <span>@User.Identity.Name</span>
+                    }
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            @RenderBody()
+        </div>
+    </main>
+
+    
+</body>
+</html>

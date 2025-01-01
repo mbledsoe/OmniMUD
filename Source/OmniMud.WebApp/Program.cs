@@ -1,20 +1,36 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
+
 namespace OmniMud.WebApp
 {
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            var builder = WebApplication.CreateBuilder(args);
+	public class Program
+	{
+		public static void Main(string[] args)
+		{
+			var builder = WebApplication.CreateBuilder(args);
 
-            builder.Services.AddMvc();
+			builder.Services.AddControllersWithViews();
 
-            var app = builder.Build();
+			builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+				.AddCookie(options =>
+				{
+					options.LoginPath = "/Auth/Login";
+					options.ReturnUrlParameter = "ReturnUrl";
+					options.LogoutPath = "/Auth/Logout";
+					options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+				});
 
-            app.UseStaticFiles();
+			builder.Services.AddHttpContextAccessor();
 
-            app.MapDefaultControllerRoute();
+			var app = builder.Build();
 
-            app.Run();
-        }
-    }
+			app.UseStaticFiles();
+
+			app.UseAuthentication();
+			app.UseAuthorization();
+
+			app.MapDefaultControllerRoute();
+
+			app.Run();
+		}
+	}
 }

@@ -76,6 +76,12 @@ header {
     height: 80px;    
 }
 
+.header-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .logo {
     display: flex;
     align-items: center;
