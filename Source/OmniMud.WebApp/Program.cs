@@ -14,13 +14,6 @@ namespace OmniMud.WebApp
 
 			builder.Services.AddControllersWithViews();
 
-			/*
-			builder.Services.AddAuthentication().AddGoogle(options =>
-			{
-				options.ClientId = builder.Configuration.GetValue<string>("Authentication:Google:ClientId");
-				options.ClientSecret = builder.Configuration.GetValue<string>("Authentication:Google:ClientSecret");
-			});
-			*/
 			builder.Services.AddAuthentication(options =>
 			{
 				options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -51,20 +44,6 @@ namespace OmniMud.WebApp
 				options.TokenValidationParameters.RoleClaimType = "roles";
 			});
 
-			/*
-			builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-				.AddCookie(options =>
-				{
-					options.LoginPath = "/Auth/Login";
-					options.ReturnUrlParameter = "ReturnUrl";
-					options.LogoutPath = "/Auth/Logout";
-					options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
-					options.SlidingExpiration = true;
-				});
-
-			builder.Services.AddOpenIdConnect
-			*/
-
 			builder.Services.AddHttpContextAccessor();
 
 			var app = builder.Build();
@@ -72,7 +51,7 @@ namespace OmniMud.WebApp
 			app.UseStaticFiles();
 
 			app.UseAuthentication();
-			//app.UseAuthorization();
+			app.UseAuthorization();
 
 			app.MapDefaultControllerRoute();
 
