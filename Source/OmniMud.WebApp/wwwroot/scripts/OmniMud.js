@@ -19,6 +19,7 @@ class OmniMud {
 
     signalRStarted() {
         console.log('signalr started');
+        document.getElementById('commandInput').focus();
     }
 
     signalRError(error) {
