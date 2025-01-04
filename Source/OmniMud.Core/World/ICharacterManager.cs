@@ -4,5 +4,6 @@
 	{
 		void AddCharacter(string connectionId, int roomId);
 		int GetCharacterRoomId(string connectionId);
+		void MoveCharacter(string connectionId, int roomId);
 	}
 }

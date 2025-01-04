@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using OmniMud.Core;
 using OmniMud.Core.Commands;
+using OmniMud.Core.Services;
 using OmniMud.Core.World;
 using OmniMud.WebApp.HostedServices;
 using OmniMud.WebApp.Hubs;
@@ -68,7 +69,8 @@ namespace OmniMud.WebApp
 
 			builder.Services.AddSingleton<IOutputQueue, OutputQueue>();
 			builder.Services.AddScoped<IOutputProcessor, SignalROutputProcessor>();
-			
+
+			builder.Services.AddSingleton<IRoomService, RoomService>();
 			builder.Services.AddSingleton<IOmniMudGame, OmniMudGame>();
 			builder.Services.AddHostedService<OmniMudHostedService>();
 

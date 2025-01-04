@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml;
-
-namespace OmniMud.Core.World
+﻿namespace OmniMud.Core.World
 {
 	public class CharacterManager : ICharacterManager
 	{
@@ -33,6 +26,13 @@ namespace OmniMud.Core.World
 			var character = GetCharacter(connectionId);
 
 			return character.RoomId;
+		}
+
+		public void MoveCharacter(string connectionId, int roomId)
+		{
+			var character = GetCharacter(connectionId);
+
+			character.RoomId = roomId;
 		}
 	}
 }
