@@ -115,18 +115,19 @@ main p {
 }
 
 #output {
-    min-height: 800px;
+    height: 800px;
     background-color: #292929;
     box-shadow: 0px 0px 10px #191919;
     padding: 1em;
     display: flex;
     flex-direction: column;
     justify-content: end;
+    overflow-y: scroll;
 }
 
 .output-message {
     line-height: 1.4em;
-
+    margin-bottom: 1em;
 }
 
 #input {
@@ -159,6 +160,14 @@ main p {
     padding: 1em;
     background-color: #333333;    
     border: solid 1px #000000;
+}
+
+.room-title {
+    color: #ffcc66;
+}
+
+.room-exits {
+    color: #00aaff;
 }
 
 @media (max-width: 1199px) {

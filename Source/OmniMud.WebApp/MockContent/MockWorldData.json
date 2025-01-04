@@ -1,0 +1,56 @@
+{
+  "Rooms": [
+    {
+      "Id": 10001,
+      "Title": "The Temple Steps",
+      "Description": "You're standing on the temple steps.",
+      "Exits": [
+        {
+          "Direction": 1,
+          "RoomId": 10002
+        },
+        {
+          "Direction": 3,
+          "RoomId": 10004
+        }
+      ]
+    },
+    {
+      "Id": 10002,
+      "Title": "The Temple Entrance",
+      "Description": "This is the temple entrance.  There is a doorway ahead that leads into the temple.  There are stairs to the south leading back into town.",
+      "Exits": [
+        {
+          "Direction": 1,
+          "RoomId": 10003
+        },
+        {
+          "Direction": 3,
+          "RoomId": 10001
+        }
+      ]
+    },
+    {
+      "Id": 10003,
+      "Title": "The Temple Sanctuary",
+      "Description": "It is quiet and visitors amble about.  This is the temple sanctuary.  There is an exit to the south that leads outside.",
+      "Exits": [
+        {
+          "Direction": 3,
+          "RoomId": 10002
+        }
+      ]
+    },
+    {
+      "Id": 10004,
+      "Title": "The Town Square",
+      "Description": "The town square is full of merchants and citizens milling about.  To the north you see the temple steps.",
+      "Exits": [
+        {
+          "Direction": 1,
+          "RoomId": 10001
+        }
+      ]
+    }
+  ]
+}

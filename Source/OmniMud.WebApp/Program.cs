@@ -3,7 +3,12 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
+using OmniMud.Core;
+using OmniMud.Core.Commands;
+using OmniMud.Core.World;
+using OmniMud.WebApp.HostedServices;
 using OmniMud.WebApp.Hubs;
+using OmniMud.WebApp.MockContent;
 
 namespace OmniMud.WebApp
 {
@@ -48,6 +53,24 @@ namespace OmniMud.WebApp
 			builder.Services.AddSignalR();
 
 			builder.Services.AddHttpContextAccessor();
+
+			// game services
+			builder.Services.AddSingleton<IWorldDataService>(provider =>
+			{
+				var rooms = new MockWorldDataLoader().LoadWorldData();
+				return new WorldDataService(rooms.First().Key, rooms);
+			});
+
+			builder.Services.AddSingleton<ICharacterManager, CharacterManager>();
+			
+			builder.Services.AddSingleton<IInputQueue, InputQueue>();
+			builder.Services.AddSingleton<IInputProcessor, InputProcessor>();
+
+			builder.Services.AddSingleton<IOutputQueue, OutputQueue>();
+			builder.Services.AddScoped<IOutputProcessor, SignalROutputProcessor>();
+			
+			builder.Services.AddSingleton<IOmniMudGame, OmniMudGame>();
+			builder.Services.AddHostedService<OmniMudHostedService>();
 
 			var app = builder.Build();
 
